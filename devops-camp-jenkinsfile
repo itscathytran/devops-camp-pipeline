@@ -15,9 +15,9 @@ pipeline {
             steps {
                 echo "Cloning application repository"
                 //TODO("Lab 3 - Introduction to Automated Builds"): add github url
-                sh 'git clone https://www.github.com/itscathytran/afs-labs-student.git'
+                sh 'git clone https://www.github.com/itscathytran/devops-camp-pipeline.git'
                 //TODO("Lab 4 - Artifact Management"): add COMMIT_HASH variable
-                dir('afs-labs-student') {
+                dir('devops-camp-pipeline') {
                     script {
                         env.COMMIT_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
                     }
