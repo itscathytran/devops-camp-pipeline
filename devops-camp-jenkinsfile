@@ -4,6 +4,12 @@ pipeline {
     }
     
     //TODO("Lab 4 - Artifact Management"): add environment variables
+    environment {
+        PIPELINE_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+        HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
+        HARBOR_PROJECT = 'ctran-harbor-project'
+        APP_IMAGE_NAME = 'app'
+    }
     stages {
         stage('Application repository') {
             steps {
